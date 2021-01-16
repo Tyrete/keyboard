@@ -12,15 +12,9 @@ def pressed_keys(press):
         update(letter, ' ' + time, store)
 
 
-def is_need_to_write(letter):
-    if letter in config.thresh:
-        return False
-    return True
-
-
 def update(letter, time, store):
     # мне просто кажется так немого читабельней
-    if is_need_to_write(letter):
+    if letter not in config.thresh:
         if letter == 'space':
             store.write(' ')
         elif letter == 'enter':
